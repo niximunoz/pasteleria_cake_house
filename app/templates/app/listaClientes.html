@@ -3,15 +3,16 @@
 
 
 {% block contenido %}
-
-    <table class="table table-default  col-sm-12 col-md-6 offset-md-3 mt-3">
-        <thead class="thead-dark ">
+<h2>Listado de Clientes</h2>
+<p class="text-center">En esta sección podrás editar y eliminar clientes.</p>
+    <table class="table table-default  col-sm-6 col-md-8 offset-md-2 mt-2">
+        <thead class="light ">
             <tr>
                 <th scope="col">Rut</th>
-                <th scope="col">Dv</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">A. Paterno</th>
-                <th scope="col">A. Materno</th>
+                <th scope="col">DV</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellido Paterno</th>
+                <th scope="col">Apellido Materno</th>
                 <th scope="col">Fecha de Nacimiento</th>
                 <th scope="col">Acciones</th>
             </tr>
@@ -25,7 +26,9 @@
                 <td>{{c.apellido_Paterno}}</td>
                 <td>{{c.apellido_Materno}}</td>
                 <td>{{c.fecha_de_Nacimiento}}</td>
-                <td><a class=" btn btn-warning col-md-4 col-sm-12" href="{% url 'modificarCliente' c.rut%}">Modificar</a><a class="btn-danger btn col-md-4 col-sm-12" href="{% url 'eliminarCliente' c.rut%}">Eliminar</a></td>
+                <td>
+                    <a class=" btn btn-outline-primary col-md-5 col-sm-10" href="{% url 'modificarCliente' c.rut%}">Editar</a>
+                    <a class="btn btn-outline-danger col-md-5 col-sm-10" href="{% url 'eliminarCliente' c.rut%}">Eliminar</a></td>
                             
                 
             </tr>
