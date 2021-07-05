@@ -12,7 +12,7 @@ class RegProductoForm(forms.ModelForm):
         existe = Producto.objects.filter(id = idProducto).exists()
         
         if existe:
-            raise ValidationError("Este id ya esta siendo utilizado!")
+            raise ValidationError("El id ingresado ya se encuentra registrado")
         
         return idProducto
     
@@ -45,7 +45,7 @@ class RegComunaForm(forms.ModelForm):
         existe = Comuna.objects.filter(id = idComuna).exists()
         
         if existe:
-            raise ValidationError("Este id ya esta siendo utilizado!")
+            raise ValidationError("El id ingresado ya se encuentra registrado")
         
         return idComuna
     def clean_nombre(self):
@@ -53,7 +53,7 @@ class RegComunaForm(forms.ModelForm):
         existe = Comuna.objects.filter(nombre = nombre).exists()
         
         if existe:
-            raise ValidationError("Este Nombre de comuna ya esta registrada!")
+            raise ValidationError("Esta comuna ya se encuentra registrada")
         
         return nombre
     nombre = forms.CharField(min_length=1, max_length=50)
@@ -69,7 +69,7 @@ class ModComunaForm(forms.ModelForm):
         existe = Comuna.objects.filter(nombre = nombre).exists()
         
         if existe:
-            raise ValidationError("Este Nombre de comuna ya esta registrado!")
+            raise ValidationError("Esta comuna ya se encuentra registrada")
         
         return nombre
     nombre = forms.CharField(min_length=1, max_length=50)
@@ -84,20 +84,20 @@ class RegClienteForm(forms.ModelForm):
         existe = Cliente.objects.filter(rut = rut).exists()
 
         if existe:
-            raise ValidationError("Este rut ya está registrado!")    
+            raise ValidationError("El rut ingresado ya se encuentra registrado")    
         return rut   
     def clean_email(self):
         email = self.cleaned_data["email"]
         existe = Cliente.objects.filter(email = email).exists()
 
         if existe:
-            raise ValidationError("Este email ya está registrado!")    
+            raise ValidationError("El E-mail ingresado ya se encuentra registrado")    
         return email 
     def clean_fecha_de_Nacimiento(self):
         
         fecha = self.cleaned_data["fecha_de_Nacimiento"]
         if fecha > datetime.date.today():
-            raise forms.ValidationError("Debes ingresar una fecha valida")
+            raise forms.ValidationError("La fecha ingresada no es valida")
         return fecha 
     
     rut = forms.IntegerField(min_value=1000000, max_value=99999999)
@@ -121,7 +121,7 @@ class ModClienteForm(forms.ModelForm):
         
         fecha = self.cleaned_data["fecha_de_Nacimiento"]
         if fecha > datetime.date.today():
-            raise forms.ValidationError("Debes ingresar una fecha valida")
+            raise forms.ValidationError("La fecha ingresada no es valida")
         return fecha 
 
     rut = forms.IntegerField(min_value=1000000, max_value=99999999)
