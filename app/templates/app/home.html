@@ -1,0 +1,77 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+    <img src="{% static 'app/img/banner.png' %}" class="d-block w-100" alt="n3ds">
+    <!-- PRODUCTOS -->
+    <div class="card-group" >
+        <div class="card" id="pastel" style="width: 18rem; padding: 1%;">
+          <img src="{% static 'app/img/pastel.jpeg' %}" class="card-img-top" alt="..." title="Pastel Selva Negra">
+          <div class="card-body">
+            <h5 class="card-title">Pastel Selva Negra</h5>
+            <p class="card-text" >El pastel selva negra de origen alemán es una combinación dulce en su chocolate y vaporosa crema chantilly en contraste con una deliciosa mermelada de frambuesa que da sensación de un bombón exquisito.</p>
+            <p class="card-text"><small class="text-muted">$7.000</small></p>
+          </div>
+        </div>
+        <div class="card" id="donas" style="width: 18rem; padding: 1%;">
+          <img src="{% static 'app/img/donas.jpeg' %}" class="card-img-top" alt="..." title="Mini Donas Crunch">
+          <div class="card-body">
+            <h5 class="card-title">Mini Donas Crunch</h5>
+            <p class="card-text"> Donas tamaño mini, rellenas de crema pastelera vegana a base de soja, cubiertas de chocolate y chips crocantes.</p>
+            <br>
+            <p class="card-text"><small class="text-muted">$350 c/u</small></p>
+          </div>
+        </div>
+        <div class="card" id="croissant" style="width: 18rem; padding: 1%;">
+          <img src="{% static 'app/img/croissant.jpeg' %}" class="card-img-top" alt="..." title="Croissant">
+          <div class="card-body">
+            <h5 class="card-title">Croissant</h5>
+            <p class="card-text">Pieza de panadería de origen austriaco versión francesa, consiste en un bollo dulce enrollado en forma de media luna y cocida al horno, elaborado con pasta de hojaldre.</p>
+            <p class="card-text"><small class="text-muted">$500 c/u</small></p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+  
+    <!-- PRODUCTOS -->
+    <!-- FOOTER -->
+    <!-- REDES SOCIALES -->
+    <div class="container">
+        <div class="row row-cols-3">
+          <div class="col"></div>
+          <div class="col text-center">Información sobre redes sociales</div>
+          <div class="col"></div>
+        </div>
+      </div>
+      <br>
+  
+      <div class="container-redes text-center">
+        <div>
+          <img src="{% static 'app/img/fb.png' %}" alt="" title="Cake House">
+        </div>
+        <div>
+          <img src="{% static 'app/img/twitter.png' %}" alt="" title="@cakehouse">
+        </div>
+        <div>
+          <img src="{% static 'app/img/insta.png' %}" alt="" title="@cake_house">
+        </div>    
+      </div>
+    
+      
+  
+      <!-- PIE DE PÁGINA -->
+      <footer class="my-5 pt-5 text-muted text-center text-small" >
+        <p class="mb-1">&copy; 2017-2021 Pastelería Cake House</p>
+        <p class="mb-1">Todos los derechos reservados</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacidad</a></li>
+          <li class="list-inline-item"><a href="#">Terminos y Condiciones</a></li>
+          <li class="list-inline-item"><a href="#">Soporte</a></li>
+        </ul>
+      </footer>
+
+<!-- FOOTER -->
+{% endblock %}

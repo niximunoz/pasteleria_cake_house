@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+
+{% block contenido %}
+<h2>Listado de Productos</h2>
+<p class="text-center">En esta sección podrás editar y eliminar productos.</p>
+    <table class="table table-default col-sm-12 col-md-6 offset-md-3 mt-3">
+        <thead class="light ">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Precio</th>
+                <th scope="col" class="text-center">Acción</th>
+            </tr>
+        </thead>
+    {% for p in producto %}
+        <tbody>
+            <tr>
+                <th scope="row">{{p.id}}</th>
+                <td>{{p.nombre}}</td>
+                <td>{{p.stock}}</td>
+                <td>{{p.precio_venta}}</td>
+                <td>
+                <a class="btn btn-outline-primary col-md-5 col-sm-10" href="{% url 'modificarProducto' p.id%}">Editar</a>
+                <a class="btn btn-outline-danger col-md-5 col-sm-10" href="{% url 'eliminarProducto' p.id%}">Eliminar</a></td>
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+
+
+{% endblock %}

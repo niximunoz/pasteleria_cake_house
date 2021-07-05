@@ -1,0 +1,58 @@
+{% extends 'app/base.html' %}
+
+{%load static%}
+{%block contenido%}
+{% load crispy_forms_tags %}
+
+<div class="container container-login ">
+    <div class="row">
+        <div class="col-12 ">
+            <form method="post" action="login.html" class="justify-content-center">
+                <h1>Iniciar Sesión</h1>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Correo Eléctronico</span></label>
+                    <input type="email" name="email" class="form-control "id="email" aria-describedby="emailHelp" placeholder="Correo Eléctronico">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Contraseña </span></label>
+                    <input type="password" class="form-control"  id="password" placeholder="Contraseña">
+                </div>
+                <div class="botonesFormulario">
+                    <a class="btn btn-outline-success btn-block" id="btnIniciar" href="{% url 'home' %}">Iniciar Sesión</a>
+                    <a class="btn btn-outline-primary btn-block" href="{% url 'registroUsuario' %}">Registrarme</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#btnIniciar").click(function(){
+
+            var email = $("#email").val();
+            var password = $("#password").val();
+
+            if($("#email").val() == ""){
+                alert("Debe ingresar su 'Correo Eléctronico'");
+                $("#email").focus();
+                return false;
+            }
+            let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.([a-zA-Z]{2,4})+$/
+            
+            if(!emailRegex.test($('#email').val()))
+            {
+                alert("El E-mail ingresado no es valido");
+                $('#email').focus();
+                return false;
+            }
+            if($("#password").val() == ""){
+                alert("Debe ingresar su 'Contraseña'");
+                $("#password").focus();
+                return false;
+            }
+        });
+    });
+</script>
+
+{% endblock %}

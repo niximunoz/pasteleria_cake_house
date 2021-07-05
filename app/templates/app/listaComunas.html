@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+
+
+{% block contenido %}
+    <h2>Listado de Comunas</h2>
+    <p class="text-center">En esta sección podrás editar y eliminar comunas.</p>
+    <table class="table table-default  col-sm-12 col-md-6 offset-md-3 mt-3" >
+        <thead class="light ">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col" class="text-center">Comuna</th>
+                <th scope="col" class="text-center">Acción</th>
+            </tr>
+        </thead>
+    {% for c in comuna %}
+        <tbody>
+            <tr>
+                <th scope="row">{{c.id}}</th>
+                <td>{{c.nombre}}</td>
+
+                <td>
+                <a class="btn btn-outline-primary col-md-5 col-sm-12" href="{% url 'modificarComuna' c.id%}">Editar</a>
+                <a class="btn btn-outline-danger col-md-5  col-sm-12" href="{% url 'eliminarComuna' c.id%}">Eliminar</a></td>
+            </tr>
+        </tbody>
+    {% endfor %}
+    </table>
+
+
+{% endblock %}
