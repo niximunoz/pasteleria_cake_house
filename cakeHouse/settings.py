@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'app',
     'django.contrib.humanize',
     'crispy_forms',
+    'rest_framework',
    
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -130,3 +131,11 @@ import os
 
 MEDIA_URL = '/img_subidas/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "img_subidas")
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
