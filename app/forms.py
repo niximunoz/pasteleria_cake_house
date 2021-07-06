@@ -102,8 +102,6 @@ class RegClienteForm(forms.ModelForm):
     
     rut = forms.IntegerField(min_value=1000000, max_value=99999999)
     nombre = forms.CharField(min_length=3, max_length=50)
-    apellido_paterno = forms.CharField(min_length=3, max_length=50)
-    apellido_materno = forms.CharField(min_length=3, max_length=50)
     direccion = forms.CharField(min_length=3, max_length=50)
     
     class Meta:
